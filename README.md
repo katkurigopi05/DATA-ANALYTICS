@@ -69,3 +69,29 @@ against the CSV and Excel files committed alongside.
 Several files carry ` (1)` / ` (2)` suffixes — download artifacts from when they
 were saved, not versions. `Scrape LinkedIn Using Selenium And Beautiful Soup in
 Python (1)` and `(2)` are byte-identical duplicates and one can be deleted.
+
+## Libraries & Methods
+
+Scanned every `.py`/`.ipynb` file (27 files, 5,353 lines) — the breadth here
+is real: scraping, classical ML, clustering and optimization all actually
+appear in the code, not just in the file names.
+
+**Scraping** — `selenium.webdriver` (`Service`, `Options`, `By`,
+`WebDriverWait`, `expected_conditions`), `webdriver_manager.ChromeDriverManager`
+for driver install, `bs4.BeautifulSoup` for the non-JS pages, `urllib.request
+.urlopen` for the API-based pulls.
+
+**Modeling** — `sklearn.linear_model.LinearRegression` and
+`PolynomialFeatures` for regression, `DecisionTreeClassifier`, `KMeans` and
+`AgglomerativeClustering` (with `scipy.cluster.hierarchy.dendrogram`/`linkage`
+and `silhouette_score`/`silhouette_samples` to validate the clusters),
+`train_test_split`, `Pipeline`, `StandardScaler`.
+
+**Optimization** — both `pulp` and `pyomo.environ` are used, not just one —
+the same class of problem solved two ways, which is consistent with the
+`Optimization` repo's approach.
+
+**Interpretability** — `lime.lime_tabular`, `mlxtend.plotting
+.plot_decision_regions`.
+
+**Stats** — `statsmodels` (`abline_plot`, `KDEUnivariate`), `scipy.stats`.
